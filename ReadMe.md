@@ -1,7 +1,7 @@
 
 # Python Course
 
-Welcome to my Python course! This repository contains exercises, examples, and resources that are part of my learning journey.
+Welcome! This repository contains exercises, examples, and resources that are part of my learning journey. This is a way to force me to remember basic concepts :). 
 
 ## Main Sources
 

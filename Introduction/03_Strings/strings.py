@@ -44,7 +44,7 @@ language_slice = language[1:3] #1,2 index
 print(language_slice)
 
 language_slice = language[1:] # all without first character
-print(language_slice)
+print("hi" + language_slice)
 
 language_slice = language[:3] #0,1,2 index
 print(language_slice)

@@ -1,5 +1,8 @@
 # lists in pyhton
 
+# lists are mutable, meaning you can change their content
+# they are defined using square brackets []
+
 # definition
 
 my_list = list()  # empty list

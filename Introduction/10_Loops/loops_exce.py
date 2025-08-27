@@ -322,8 +322,33 @@ for country in countries_data:
         if language in languages_count:
             languages_count[language] += 1
         else:
-            languages_count = 1
+            languages_count[language] = 1
 
+language_list = list(languages_count.items())
 
+for i in range(len(language_list)):
+    for j in range(i+1, len(language_list)):
+        if language_list[j][1] < language_list[i][1]:
+            tmp = language_list[i]
+            language_list[i] = language_list[j]
+            language_list[j] = tmp
+
+print(language_list[-11:-1])
 
 # Find the 10 most populated countries in the world
+
+countries_pop = {}
+
+for country in countries_data:
+    countries_pop[country["name"]] = country["population"]
+
+population_list = list(countries_pop.items())
+
+for i in range(len(population_list)):
+    for j in range((i+1), len(population_list)):
+        if population_list[i][1] > population_list[j][1]:
+            temp = population_list[j] 
+            population_list[j] = population_list[i]
+            population_list[i] = temp
+
+print(population_list[-11:-1])

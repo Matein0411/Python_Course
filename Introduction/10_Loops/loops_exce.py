@@ -333,7 +333,7 @@ for i in range(len(language_list)):
             language_list[i] = language_list[j]
             language_list[j] = tmp
 
-print(language_list[-11:-1])
+print(language_list[::-1][:10])
 
 # Find the 10 most populated countries in the world
 

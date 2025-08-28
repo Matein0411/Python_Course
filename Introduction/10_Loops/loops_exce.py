@@ -346,9 +346,9 @@ population_list = list(countries_pop.items())
 
 for i in range(len(population_list)):
     for j in range((i+1), len(population_list)):
-        if population_list[i][1] > population_list[j][1]:
+        if population_list[i][1] < population_list[j][1]:
             temp = population_list[j] 
             population_list[j] = population_list[i]
             population_list[i] = temp
 
-print(population_list[-11:-1])
+print(population_list[:10])

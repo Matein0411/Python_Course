@@ -21,6 +21,7 @@ print(quote_str)
 # concat
 first_name = 'Pepe'
 last_name = 'Le Pew'
+full_name = first_name.join([" ", last_name])
 print("Full name:", first_name + " " + last_name)
 
 # Formating

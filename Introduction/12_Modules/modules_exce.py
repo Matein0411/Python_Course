@@ -1,5 +1,6 @@
 from random import random, randint
 import string
+import random
 
 # Exercises: Level 1
 
@@ -106,4 +107,27 @@ generate_random_colors()
 
 # Exercises: Level 3
 # Call your function shuffle_list, it takes a list as a parameter and it returns a shuffled list
-# Write a function which returns an array of seven random numbers in a range of 0-9. All the numbers must be unique.
+
+def shuffled_list(lst: list):
+    random.shuffle(lst)
+    print(lst)
+
+lst = [4, 2, 3]
+
+shuffled_list(lst)
+
+# Write a function which returns an array of seven random 
+# numbers in a range of 0-9. All the numbers must be unique.
+
+def seven_numbers():
+    numbers = set()
+    i = 1
+    while i <= 7: 
+        num = randint(0, 9)
+        if num in numbers: # obvio nope, because is a set :)
+            i -= 1
+        numbers.add(num)
+        i += 1
+    print(numbers)
+
+seven_numbers()

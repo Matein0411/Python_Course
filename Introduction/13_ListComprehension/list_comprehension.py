@@ -38,7 +38,7 @@ positive_even_numbers = [i for i in numbers if i%2 == 0 and i > 0]
 print(positive_even_numbers)
 
 # flattering a three dimensional array
-list_of_lists = [[1, 2, 3], [4, 5, 6]], [7, 8, 9]
+list_of_lists = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 flattened_list = [number for row in list_of_lists for number in row]
 print(flattened_list)
 

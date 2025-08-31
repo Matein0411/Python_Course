@@ -327,7 +327,7 @@ for country in countries_data:
 language_list = list(languages_count.items())
 
 for i in range(len(language_list)):
-    for j in range(i+1, len(language_list)):
+    for j in range(i + 1, len(language_list)):
         if language_list[j][1] < language_list[i][1]:
             tmp = language_list[i]
             language_list[i] = language_list[j]

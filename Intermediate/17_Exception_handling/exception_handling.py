@@ -46,7 +46,8 @@ except ValueError:
     print('Value error occur')
 except ZeroDivisionError:
     print('zero division error occur')
-else:
+else: # no exceptions? run this code
     print('I usually run with the try block')
-finally:
+finally: # always run this code
     print('I always run.')
+

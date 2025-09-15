@@ -18,33 +18,69 @@ most_frequent = sorted(count.items(), key=lambda x: x[1], reverse=True)
 print(most_frequent)  
 
 
-# The position of some particles on the horizontal x-axis are -12, -4, -3 and -1 in the negative direction, 0 at origin, 4 and 8 in the positive direction. Extract these numbers from this whole text and find the distance between the two furthest particles.
-# points = ['-12', '-4', '-3', '-1', '0', '4', '8']
-# sorted_points =  [-12, -4, -3, -1, -1, 0, 2, 4, 8]
-# distance = 8 -(-12) # 20
+# The position of some particles on the horizontal x-axis are -12, -4, -3 and -1 in the negative direction, 
+# 0 at origin, 4 and 8 in the positive direction. 
+# Extract these numbers from this whole text and find the distance between the two furthest particles.lambda x: for i in range len(text) if text[i].isdigit() points.append(int(x))
+text = """ The position of some particles on the horizontal x-axis are -12, -4, -3 and -1 in the negative direction, 
+0 at origin, 4 and 8 in the positive direction. """
+
+points = []
+
+pattern = r"-?\d+"
+points = re.findall(pattern, text)
+points = [int(x) for x in points]
+
+distance = max(points) - min(points)
+print(distance) # 20
+
 # Exercises: Level 2
 # Write a pattern which identifies if a string is a valid python variable
 
-pattern = r"^[a-zA-Z_][a-zA-Z0-9_]*$"
-def is_valid_variable(var_name):
-    if re.match(pattern, var_name):
-        print(f'"{var_name}" is a valid Python variable name.')
+def is_valid_variable(var):
+
+    pattern = r"^[a-zA-Z_][a-zA-Z0-9_]*$"
+    if re.match(pattern, var):
         return True
-    else:
-        print(f'"{var_name}" is not a valid Python variable name.')
-        return False
+    return False
 
-
+print(is_valid_variable('first_name')) # True
+print(is_valid_variable('first-name')) # False
 
 # is_valid_variable('first_name') # True
 # is_valid_variable('first-name') # False
 # is_valid_variable('1first_name') # False
 # is_valid_variable('firstname') # True
+
+
 # Exercises: Level 3
 # Clean the following text. After cleaning, count three most frequent words in the string.
 
-# sentence = '''%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as educa@ting &and& @emp%o@wering peo@ple. ;I found tea@ching m%o@re interesting tha@n any other %jo@bs. %Do@es thi%s mo@tivate yo@u to be a tea@cher!?'''
+sentence = '''%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. 
+There $is nothing; &as& mo@re rewarding as educa@ting &and& @emp%o@wering peo@ple.
+;I found tea@ching m%o@re interesting tha@n any other %jo@bs.
+%Do@es thi%s mo@tivate yo@u to be a tea@cher !?'''
 
-# print(clean_text(sentence));
-# I am a teacher and I love teaching There is nothing as more rewarding as educating and empowering people I found teaching more interesting than any other jobs Does this motivate you to be a teacher
-# print(most_frequent_words(cleaned_text)) # [(3, 'I'), (2, 'teaching'), (2, 'teacher')]
+def clean_text(sentence):
+
+    pattern = r"[^\w\s]"
+    cleaned_text = re.sub(pattern, "", sentence)
+    return cleaned_text
+
+print(clean_text(sentence))
+
+sentence_cleaned = clean_text(sentence)
+
+def count_most_frequent_word(sentence):
+
+    words = {}
+    for i in sentence:
+        if i not in words:
+            words[i] = 1
+        else:
+            words[i] += 1
+    
+    ordered_words = dict(sorted(words.items(), key = lambda x: x[1], reverse=True)) 
+    top3 = list(ordered_words.items())[:3]
+    return top3
+
+print(count_most_frequent_word(sentence_cleaned))
